@@ -93,7 +93,7 @@ function chooseItem(){
 							
 						}
 						console.log("Bid place successfully");
-						console.log("The total for your purchase is: " + unitPrice*answer.units);
+						console.log("The total for your purchase is: " + (unitPrice*answer.units).toFixed(2));
 					}
 
 					);
