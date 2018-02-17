@@ -73,11 +73,32 @@ function chooseItem(){
 			console.log(unitsRemaining);
 			if(answer.units <= unitsRemaining){
 				console.log("Great! Let's go ahead and make your purchase");
+				var query = "UPDATE products SET ? WHERE ?";
+				connection.query(
+					query,
+					[
+						{
+							stock_quantity: unitsRemaining-answer.units
+						},
+						{
+							item_id: answer.idToBuy
+						}
+					],
+					function(error){
+						if(error){
+							console.log(error);
+							console.log("Bid place successfully");
+						}
+
+					}
+
+					);
+			} else {
+				console.log("Sorry, we do not currently have enough stock to place your order.");
 			}
 
 		});
 	});
-
 };
 
 
