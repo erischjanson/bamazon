@@ -63,6 +63,18 @@ function chooseItem(){
 		var query = "SELECT * FROM products WHERE ?";
 		connection.query(query, {item_id: answer.idToBuy}, function(error, results){
 			console.log(results);
+			var unitsRemaining;
+			for (var i = 0; i < results.length; i++){
+				//console.log(results[i].stock_quantity);
+				unitsRemaining = results[i].stock_quantity;
+				//console.log(unitsRemaining);
+			}
+
+			console.log(unitsRemaining);
+			if(answer.units <= unitsRemaining){
+				console.log("Great! Let's go ahead and make your purchase");
+			}
+
 		});
 	});
 
