@@ -64,13 +64,16 @@ function chooseItem(){
 		connection.query(query, {item_id: answer.idToBuy}, function(error, results){
 			console.log(results);
 			var unitsRemaining;
+			var unitPrice;
 			for (var i = 0; i < results.length; i++){
 				//console.log(results[i].stock_quantity);
 				unitsRemaining = results[i].stock_quantity;
+				unitPrice = results[i].price;
 				//console.log(unitsRemaining);
 			}
 
 			console.log(unitsRemaining);
+			//if there is enough stock, subtract requested units from that item's remaining stock
 			if(answer.units <= unitsRemaining){
 				console.log("Great! Let's go ahead and make your purchase");
 				var query = "UPDATE products SET ? WHERE ?";
@@ -87,12 +90,14 @@ function chooseItem(){
 					function(error){
 						if(error){
 							console.log(error);
-							console.log("Bid place successfully");
+							
 						}
-
+						console.log("Bid place successfully");
+						console.log("The total for your purchase is: " + unitPrice*answer.units);
 					}
 
 					);
+				//if there is not enough stock, let the user know
 			} else {
 				console.log("Sorry, we do not currently have enough stock to place your order.");
 			}
