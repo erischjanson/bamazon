@@ -93,6 +93,7 @@ function chooseItem(){
 				//if there is not enough stock, let the user know
 			} else {
 				console.log("Sorry, we do not currently have enough stock to place your order.");
+				chooseItem();
 			}
 
 		});
