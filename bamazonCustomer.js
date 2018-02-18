@@ -31,10 +31,8 @@ function queryAll(){
 		for (var i = 0; i < response.length; i ++){
 			console.log("ITEM: ", response[i].product_name);
 			console.log("PRICE: ", response[i].price);
-			console.log("ID: ", response[i].item_id);
-			console.log("\n");
-			console.log("----------------------------------------")
-			console.log("\n");
+			console.log("ID: ", response[i].item_id);			
+			console.log("----------------------------------------");			
 		}
 
 		chooseItem();
@@ -57,24 +55,20 @@ function chooseItem(){
 	message: "How many units would you like to buy?",
 	name: "units"
 }
-	]).then(function(answer){
-		console.log(answer);
+	]).then(function(answer){		
 		var query = "SELECT * FROM products WHERE ?";
-		connection.query(query, {item_id: answer.idToBuy}, function(error, results){
-			console.log(results);
+		connection.query(query, {item_id: answer.idToBuy}, function(error, results){			
 			var unitsRemaining;
 			var unitPrice;
-			for (var i = 0; i < results.length; i++){
-				//console.log(results[i].stock_quantity);
+			for (var i = 0; i < results.length; i++){				
 				unitsRemaining = results[i].stock_quantity;
 				unitPrice = results[i].price;
-				//console.log(unitsRemaining);
+				
 			}
 
 			console.log(unitsRemaining);
 			//if there is enough stock, subtract requested units from that item's remaining stock
-			if(answer.units <= unitsRemaining){
-				console.log("Great! Let's go ahead and make your purchase");
+			if(answer.units <= unitsRemaining){				
 				var query = "UPDATE products SET ? WHERE ?";
 				connection.query(
 					query,
@@ -91,7 +85,7 @@ function chooseItem(){
 							console.log(error);
 							
 						}
-						console.log("Bid place successfully");
+						console.log("Thank you for shopping with Bamazon. Your order has been placed.");
 						console.log("The total for your purchase is: " + (unitPrice*answer.units).toFixed(2));
 					}
 
