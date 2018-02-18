@@ -2,7 +2,6 @@ var mysql = require("mysql");
 var inquirer = require("inquirer");
 
 var connection = mysql.createConnection({
-
 	host: "localhost",
 	port: 3306,
 
@@ -11,17 +10,17 @@ var connection = mysql.createConnection({
 	database: "bamazon"
 });
 
+//establishing connection with mysql database
 connection.connect(function(error){
 	if(error){
 		console.log(error);
 	}
-
 	console.log("You are connected as ID " + connection.threadId);
 	queryAll();
 	
 });
 
-//returns all products along with their price and id
+//displays all available products to the user along with their price and id
 function queryAll(){
 	connection.query("SELECT * FROM products", function(error, response){
 		if(error){
