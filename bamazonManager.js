@@ -14,7 +14,9 @@ connection.connect(function(error){
 	if(error){
 		console.log(error);
 	}
-	console.log("You are connected as ID " + connection.threadId);
+	//console.log("You are connected as ID " + connection.threadId);
+	managerAction();
+
 });
 
 function managerAction(){
@@ -60,10 +62,25 @@ function viewAllInventory(){
 		if(error){
 			console.log(error);
 		}
-		console.log(response);
+		
 		for(var i = 0; i < response.length; i++){
 			console.log("ID: " + response[i].item_id + "\nITEM: " + response[i].product_name + "\nPrice: " + response[i].price + "\nQuantity: " + response[i].stock_quantity + "\n------------------");
 		}
+
+		inquirer.prompt([
+{
+	type: "input",
+	message: "Continue?",
+	name: "continue"
+}
+			]).then(function(answer){
+				if(answer.continue === "yes"){
+					managerAction();
+				}
+				else{
+					console.log("See ya!");
+				}
+			})
 	})
 }
 
@@ -177,6 +194,5 @@ function addNewProduct(){
 		})
 }
 
-managerAction();
 
 
