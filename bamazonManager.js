@@ -40,8 +40,8 @@ function managerAction(){
 		}
 
 		]).then(function(answers){
-			console.log(answers);
-			console.log(JSON.stringify(answers));
+			// console.log(answers);
+			// console.log(JSON.stringify(answers));
 			if(answers.action === "viewAll"){
 				viewAllInventory();
 			} else if (answers.action === "lowInventory"){
@@ -81,7 +81,6 @@ function viewLowInventory(){
 }
 
 function addInventory(){
-	console.log("Now you can add more inventory");
 	inquirer.prompt([
 {
 	type:"input",
@@ -107,7 +106,8 @@ function addInventory(){
 				
 				for (var i = 0; i < results.length; i++){
 					currentStock=parseInt(results[i].stock_quantity);
-					console.log("Current Stock: " + currentStock);
+					itemName=results[i].product_name;
+					//console.log("Current Stock: " + currentStock);
 					console.log("Adding " + quantityToAdd + " units of " + results[i].product_name + ".");
 				}
 				
@@ -127,7 +127,7 @@ function addInventory(){
 						if(error){
 							console.log(error);
 						}
-						console.log("Successfully added.");
+						console.log("Successfully added. You now have " + (currentStock+quantityToAdd) + " units of " + itemName + "in stock.");
 					})
 			})
 		})
@@ -135,6 +135,46 @@ function addInventory(){
 
 function addNewProduct(){
 	console.log("Now you can add a new product");
+	inquirer.prompt([
+{
+	type: "input",
+	message: "What is the name of the product to add?",
+	name: "product_name"
+},
+{
+	type: "input",
+	message: "Enter the department name of the product.",
+	name: "department_name"
+},
+{
+	type: "input",
+	message: "What is the price of the product?",
+	name: "price",
+},
+{
+	type: "input",
+	message: "How many units of the product would you like to add?",
+	name: "stock_quantity"
+}
+		]).then(function(answers){
+			console.log(answers);
+
+			var insertQuery = "INSERT INTO products SET ?";
+			connection.query(
+				insertQuery,
+				{
+					product_name: answers.product_name,
+					department_name: answers.department_name,
+					price: answers.price,
+					stock_quantity: answers.stock_quantity
+				}, function(error, results){
+					if(error){
+						console.log(error);
+					}
+					console.log("Product successfully added.");
+				})
+	
+		})
 }
 
 managerAction();
