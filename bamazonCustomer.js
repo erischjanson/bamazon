@@ -66,7 +66,7 @@ function chooseItem(){
 				
 			}
 
-			console.log(unitsRemaining);
+			//console.log(unitsRemaining);
 			//if there is enough stock, subtract requested units from that item's remaining stock
 			if(answer.units <= unitsRemaining){				
 				var query = "UPDATE products SET ? WHERE ?";
