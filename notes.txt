@@ -1,0 +1,4 @@
+extras:
+
+allow user to quit out of the application with a command.
+if out of stock, tell user how much there is in stock.

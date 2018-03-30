@@ -65,8 +65,7 @@ function chooseItem(){
 				unitPrice = results[i].price;
 				
 			}
-
-			//console.log(unitsRemaining);
+			
 			//if there is enough stock, subtract requested units from that item's remaining stock
 			if(answer.units <= unitsRemaining){				
 				var query = "UPDATE products SET ? WHERE ?";
@@ -90,12 +89,11 @@ function chooseItem(){
 					}
 
 					);
-				//if there is not enough stock, let the user know
+			//if there is not enough stock, let the user know
 			} else {
 				console.log("Sorry, we do not currently have enough stock to place your order.");
 				chooseItem();
 			}
-
 		});
 	});
 };

@@ -189,7 +189,7 @@ function addNewProduct(){
 		})
 }
 
-//asks the manager if they would like to continue using the program and perform another action
+//function to ask the manager if they would like to continue using the program and perform another action
 function continueSearch(){
 			inquirer.prompt([
 			{
