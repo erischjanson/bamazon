@@ -1,12 +1,12 @@
 # bamazon
 Node.js and MySQL app
 
-##Description:
+## Description:
 
 This is a node command line interface program that acts as a simple online retailer. It uses a MySQL database along with the npm mysql and inquirer packages to present two views: one for customers and one for managers.  
 
 
-##**Customer View**:
+## **Customer View**:
 
 The customer view allows customers to view inventory and prices and to purchase products that are in stock.
 
@@ -27,7 +27,7 @@ Customer View Demo:
 https://drive.google.com/file/d/18H0kcyCmgzfSfGqD7uaMLowG05c8h6cG/view
 
 
-##**Manager View**:
+## **Manager View**:
 
 The manager view allows managers to view and manage inventory. They can view items that will soon be out of stock, restock existing items, and even add new products to the database.
 
