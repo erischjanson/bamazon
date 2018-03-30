@@ -6,7 +6,7 @@ Node.js and MySQL app
 This is a node command line interface program that acts as a simple online retailer. It uses a MySQL database along with the npm mysql and inquirer packages to present two views: one for customers and one for managers.  
 
 
-## **Customer View**:
+### **Customer View**:
 
 The customer view allows customers to view inventory and prices and to purchase products that are in stock.
 
@@ -23,11 +23,11 @@ import or copy and paste the seed.sql file into your new products table //popula
 node bamazonCustomer.js // initiate the app from within the command line
 ```
 
-Customer View Demo:
+**Customer View Demo:**
 https://drive.google.com/file/d/18H0kcyCmgzfSfGqD7uaMLowG05c8h6cG/view
 
 
-## **Manager View**:
+### **Manager View**:
 
 The manager view allows managers to view and manage inventory. They can view items that will soon be out of stock, restock existing items, and even add new products to the database.
 
@@ -37,10 +37,10 @@ To begin using the manager's version of the product, please call the bamazonMana
 git clone git@github.com:erischjanson/bamazon.git //clone the repository
 cd bamazon //navigate to the bamazon directory
 npm install //install the dependencies
+```
 open mysql workbench and run the schema.sql file //create the bamazon database and products table in mysql
 import or copy and paste the seed.sql file into your new products table //populate the products table with data
-node bamazonManager.js // initiate the app from within the command line
-```
+```node bamazonManager.js // initiate the app from within the command line```
 
-Manager View Demo:
+**Manager View Demo:**
 https://drive.google.com/file/d/1XpS2Bq1Elfhj4IBDrhai1bXojgVHfK1t/view
