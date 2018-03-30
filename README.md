@@ -18,8 +18,10 @@ To begin the order process, follow the instructions below:
 git clone git@github.com:erischjanson/bamazon.git //clone the repository
 cd bamazon //navigate to the bamazon directory
 npm install //install the dependencies
+```
 open mysql workbench and run the schema.sql file //create the bamazon database and products table in mysql
 import or copy and paste the seed.sql file into your new products table //populate the products table with data
+```
 node bamazonCustomer.js // initiate the app from within the command line
 ```
 
@@ -40,7 +42,9 @@ npm install //install the dependencies
 ```
 open mysql workbench and run the schema.sql file //create the bamazon database and products table in mysql
 import or copy and paste the seed.sql file into your new products table //populate the products table with data
-```node bamazonManager.js // initiate the app from within the command line```
+```
+node bamazonManager.js // initiate the app from within the command line
+```
 
 **Manager View Demo:**
 https://drive.google.com/file/d/1XpS2Bq1Elfhj4IBDrhai1bXojgVHfK1t/view
